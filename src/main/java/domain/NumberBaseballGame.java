@@ -1,19 +1,32 @@
 package domain;
 
-import java.util.Random;
+import java.util.*;
 
 public class NumberBaseballGame {
 
+    private static final int COUNT = 3;
     private final Random random = new Random();
-    private int[] answer = new int[3];
+    private final List<Integer> answer = new ArrayList<>();
 
-    public void generateAnswer() {
-        for (int i = 0; i < 3; i++) {
-            answer[i] =  random.nextInt(9) + 1;
-        }
+    public void init() {
+        answer.clear();
+        generateAnswer();
     }
 
-    public int[] getAnswer() {
+    public List<Integer> getAnswer() {
         return answer;
+    }
+
+
+    // private methods
+    private void generateAnswer() {
+        HashSet<Integer> randomNumbers = new HashSet<>();
+
+        while (randomNumbers.size() < COUNT) {
+            int number = random.nextInt(9) + 1;
+            randomNumbers.add(number);
+        }
+
+        answer.addAll(randomNumbers);
     }
 }
