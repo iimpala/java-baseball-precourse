@@ -1,5 +1,7 @@
 package domain;
 
+import domain.dto.GameResult;
+
 import java.util.*;
 
 public class NumberBaseballGame {
@@ -15,20 +17,37 @@ public class NumberBaseballGame {
         answer.addAll(numberGenerator.generateNumbersBetween(1, 9, 3));
     }
 
+    public GameResult judge(List<Integer> input) {
+        int strikeCount = 0;
+        int ballCount = 0;
+
+        for (int i = 0; i < input.size(); i++) {
+            if (!isStrike(input, i)) {
+                ballCount += isBall(input.get(i));
+                continue;
+            }
+            strikeCount += 1;
+        }
+
+        return new GameResult(strikeCount, ballCount);
+    }
+
+    // getter
     public List<Integer> getAnswer() {
         return answer;
     }
 
 
     // private methods
-    private void generateAnswer() {
-        HashSet<Integer> randomNumbers = new HashSet<>();
+    private boolean isStrike(List<Integer> input, int i) {
+        return answer.get(i).equals(input.get(i));
+    }
 
-        while (randomNumbers.size() < COUNT) {
-            int number = random.nextInt(9) + 1;
-            randomNumbers.add(number);
+    private int isBall(int num) {
+        if (answer.contains(num)) {
+            return 1;
         }
 
-        answer.addAll(randomNumbers);
+        return 0;
     }
 }
