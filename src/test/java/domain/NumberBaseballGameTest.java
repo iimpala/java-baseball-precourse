@@ -16,7 +16,7 @@ class NumberBaseballGameTest {
     @DisplayName("시스템은 게임이 시작되면 1~9사이의 서로 다른 수로 이루어진 3자리 숫자를 생성한다")
     void init() {
         //given
-        NumberBaseballGame game = new NumberBaseballGame();
+        NumberBaseballGame game = new NumberBaseballGame(new RandomNumberGenerator());
 
         //when
         game.init();

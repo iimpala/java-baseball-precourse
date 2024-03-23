@@ -3,14 +3,16 @@ package domain;
 import java.util.*;
 
 public class NumberBaseballGame {
-
-    private static final int COUNT = 3;
-    private final Random random = new Random();
+    private final NumberGenerator numberGenerator;
     private final List<Integer> answer = new ArrayList<>();
+
+    public NumberBaseballGame(NumberGenerator numberGenerator) {
+        this.numberGenerator = numberGenerator;
+    }
 
     public void init() {
         answer.clear();
-        generateAnswer();
+        answer.addAll(numberGenerator.generateNumbersBetween(1, 9, 3));
     }
 
     public List<Integer> getAnswer() {
