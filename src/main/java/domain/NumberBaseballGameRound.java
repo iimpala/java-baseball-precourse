@@ -5,11 +5,11 @@ import util.NumberGenerator;
 
 import java.util.*;
 
-public class NumberBaseballGame {
+public class NumberBaseballGameRound {
     private final NumberGenerator numberGenerator;
     private final List<Integer> answer = new ArrayList<>();
 
-    public NumberBaseballGame(NumberGenerator numberGenerator) {
+    public NumberBaseballGameRound(NumberGenerator numberGenerator) {
         this.numberGenerator = numberGenerator;
     }
 

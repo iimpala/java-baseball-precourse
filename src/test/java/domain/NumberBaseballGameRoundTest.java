@@ -14,12 +14,12 @@ import java.util.Set;
 
 import static org.assertj.core.api.Assertions.*;
 
-class NumberBaseballGameTest {
+class NumberBaseballGameRoundTest {
     @RepeatedTest(500)
     @DisplayName("시스템은 게임이 시작되면 1~9사이의 서로 다른 수로 이루어진 3자리 숫자를 생성한다")
     void init() {
         //given
-        NumberBaseballGame game = new NumberBaseballGame(new RandomNumberGenerator());
+        NumberBaseballGameRound game = new NumberBaseballGameRound(new RandomNumberGenerator());
 
         //when
         game.init();
@@ -53,7 +53,7 @@ class NumberBaseballGameTest {
     @DisplayName("시스템은 사용자의 입력을 받으면 정답과 비교하여 판정 결과를 반환한다")
     void judge(String answer, String input, String expected) {
         //given
-        NumberBaseballGame game = new NumberBaseballGame((lowerBound, upperBound, n) -> mapToInts(answer));
+        NumberBaseballGameRound game = new NumberBaseballGameRound((lowerBound, upperBound, n) -> mapToInts(answer, ","));
         game.init();
 
         //when
