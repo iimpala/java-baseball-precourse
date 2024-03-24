@@ -5,6 +5,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
+import util.RandomNumberGenerator;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -64,7 +65,10 @@ class NumberBaseballGameTest {
         assertThat(result.getBallCount()).isEqualTo(expectedResult.get(1));
     }
 
-    
+
+    /**
+     * Utility method
+     */
     private static List<Integer> mapToInts(String input) {
         String[] stringArray = input.split(",");
         List<Integer> nums = new ArrayList<>();
