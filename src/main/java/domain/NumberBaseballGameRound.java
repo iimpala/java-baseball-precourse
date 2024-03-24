@@ -7,6 +7,7 @@ import java.util.*;
 
 public class NumberBaseballGameRound {
     private final NumberGenerator numberGenerator;
+    private boolean roundStatus;
     private final List<Integer> answer = new ArrayList<>();
 
     public NumberBaseballGameRound(NumberGenerator numberGenerator) {
@@ -20,6 +21,7 @@ public class NumberBaseballGameRound {
     public void init() {
         answer.clear();
         answer.addAll(numberGenerator.generateNumbersBetween(1, 9, 3));
+        roundStatus = true;
     }
 
     public GameResult judge(List<Integer> input) {
@@ -35,6 +37,14 @@ public class NumberBaseballGameRound {
         }
 
         return new GameResult(strikeCount, ballCount);
+    }
+
+    public void finish() {
+        this.roundStatus = false;
+    }
+
+    public boolean isFinished() {
+        return !this.roundStatus;
     }
 
 
