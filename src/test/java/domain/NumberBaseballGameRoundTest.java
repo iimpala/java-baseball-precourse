@@ -7,12 +7,12 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import util.numberGenerator.RandomNumberGenerator;
 
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
 import static org.assertj.core.api.Assertions.*;
+import static util.converter.IntegerListConverter.mapToInts;
 
 class NumberBaseballGameRoundTest {
     @RepeatedTest(500)
@@ -57,25 +57,11 @@ class NumberBaseballGameRoundTest {
         game.init();
 
         //when
-        GameResult result = game.judge(mapToInts(input));
+        GameResult result = game.judge(mapToInts(input, ","));
 
         //then
-        List<Integer> expectedResult = mapToInts(expected);
+        List<Integer> expectedResult = mapToInts(expected, ",");
         assertThat(result.getStrikeCount()).isEqualTo(expectedResult.get(0));
         assertThat(result.getBallCount()).isEqualTo(expectedResult.get(1));
     }
-
-
-    /**
-     * Utility method
-     */
-    private static List<Integer> mapToInts(String input) {
-        String[] stringArray = input.split(",");
-        List<Integer> nums = new ArrayList<>();
-        for (String s : stringArray) {
-            nums.add(Integer.valueOf(s));
-        }
-        return nums;
-    }
-
 }
