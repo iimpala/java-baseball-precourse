@@ -15,6 +15,11 @@
         - NumberBaseballGameView.java       : View
       - domain
         - NumberBaseballGame.java           : Model Layer
+        - dto
+          - GameResult.java                 : DTO
+      - util
+        - NumberGenerator.java
+        - RandomNumberGenerator.java
     - test
       - domain
         - NumberBaseballGameTest.java
