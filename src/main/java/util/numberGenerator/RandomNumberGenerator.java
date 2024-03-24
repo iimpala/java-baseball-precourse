@@ -1,4 +1,4 @@
-package util;
+package util.numberGenerator;
 
 import java.util.HashSet;
 import java.util.Random;

@@ -1,7 +1,7 @@
 package domain;
 
 import domain.dto.GameResult;
-import util.NumberGenerator;
+import util.numberGenerator.NumberGenerator;
 
 import java.util.*;
 
