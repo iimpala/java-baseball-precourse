@@ -6,30 +6,38 @@
 ## 과제 제출 과정
 * [과제 제출 방법](https://github.com/next-step/nextstep-docs/tree/master/precourse)
 
-## Project Structure 초안
+## Project Structure
 - src
   - main
     - java
-      - NumberBaseballGameApplication.java  : Controller Layer
+      - NumberBaseballGameApplication.java
+      - NumberBaseballGame.java
       - view
-        - NumberBaseballGameView.java       : View
+        - NumberBaseballGameView.java
       - domain
-        - NumberBaseballGame.java           : Model Layer
+        - NumberBaseballGameRound.java
         - dto
-          - GameResult.java                 : DTO
+          - GameResult.java
       - util
-        - NumberGenerator.java
-        - RandomNumberGenerator.java
+        - numberGenerator
+          - NumberGenerator.java
+          - RandomNumberGenerator.java
+        - converter
+          - IntegerListConverter.java
+        - validator
+          - NumberBaseballGameInputValidator.java
+        - exception
+          - NumberBaseballGameException.java
     - test
       - domain
-        - NumberBaseballGameTest.java
+        - NumberBaseballGameRoundTest.java
 
 ## 숫자야구 요구사항 목록
 ### USER
-- [ ] 사용자는 콘솔창에 3자리 숫자를 입력할 수 있다
-- [ ] 사용자가 3자리 숫자를 입력하면 판정결과가 콘솔창에 출력된다
-- [ ] 사용자가 콘솔창에 잘못된 값을 입력한 경우 [ERROR]로 시작하는 에러메시지가 출력되고, 이후 게임이 정상적으로 진행된다
-- [ ] 사용자가 정답을 맞춘 경우 게임이 종료되고, 이후 다시 시작하거나 시스템을 종료하는 안내메시지를 출력한다
+- [x] 사용자는 콘솔창에 3자리 숫자를 입력할 수 있다
+- [x] 사용자가 3자리 숫자를 입력하면 판정결과가 콘솔창에 출력된다
+- [x] 사용자가 콘솔창에 잘못된 값을 입력한 경우 [ERROR]로 시작하는 에러메시지가 출력되고, 이후 게임이 정상적으로 진행된다
+- [x] 사용자가 정답을 맞춘 경우 게임이 종료되고, 이후 다시 시작하거나 시스템을 종료하는 안내메시지를 출력한다
 
 ## SYSTEM
 - [x] 시스템은 게임이 시작되면 1~9사이의 서로 다른 수로 이루어진 3자리 숫자를 생성한다
